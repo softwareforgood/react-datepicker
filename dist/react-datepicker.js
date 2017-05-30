@@ -379,6 +379,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          highlightDates: _this.props.highlightDates,
 	          includeDates: _this.props.includeDates,
 	          inline: _this.props.inline,
+	          dateData: _this.props.dateData,
 	          peekNextMonth: _this.props.peekNextMonth,
 	          showMonthDropdown: _this.props.showMonthDropdown,
 	          showWeekNumbers: _this.props.showWeekNumbers,
@@ -866,6 +867,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            selectingDate: _this.state.selectingDate,
 	            includeDates: _this.props.includeDates,
 	            inline: _this.props.inline,
+	            dateData: _this.props.dateData,
 	            fixedHeight: _this.props.fixedHeight,
 	            filterDate: _this.props.filterDate,
 	            preSelection: _this.props.preSelection,
@@ -1849,6 +1851,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          excludeDates: _this.props.excludeDates,
 	          includeDates: _this.props.includeDates,
 	          inline: _this.props.inline,
+	          dateData: _this.props.dateData,
 	          highlightDates: _this.props.highlightDates,
 	          selectingDate: _this.props.selectingDate,
 	          filterDate: _this.props.filterDate,
@@ -2010,6 +2013,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          excludeDates: _this.props.excludeDates,
 	          includeDates: _this.props.includeDates,
 	          inline: _this.props.inline,
+	          dateData: _this.props.dateData,
 	          highlightDates: _this.props.highlightDates,
 	          selectingDate: _this.props.selectingDate,
 	          filterDate: _this.props.filterDate,
@@ -2264,6 +2268,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'react-datepicker__day--date' },
+	          this.props.dateData && _react2.default.createElement(
+	            'div',
+	            { className: 'date-data' },
+	            this.props.dateData[(0, _moment2.default)(this.props.day).format('YYYY-MM-DD')]
+	          ),
 	          this.props.day.date()
 	        )
 	      );

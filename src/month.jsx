@@ -74,6 +74,7 @@ export default class Month extends React.Component {
           excludeDates={this.props.excludeDates}
           includeDates={this.props.includeDates}
           inline={this.props.inline}
+          dateData={this.props.dateData}
           highlightDates={this.props.highlightDates}
           selectingDate={this.props.selectingDate}
           filterDate={this.props.filterDate}
