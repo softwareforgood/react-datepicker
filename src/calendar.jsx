@@ -285,6 +285,7 @@ export default class Calendar extends React.Component {
                 selectingDate={this.state.selectingDate}
                 includeDates={this.props.includeDates}
                 inline={this.props.inline}
+                dateData={this.props.dateData}
                 fixedHeight={this.props.fixedHeight}
                 filterDate={this.props.filterDate}
                 preSelection={this.props.preSelection}
