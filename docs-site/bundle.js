@@ -55769,7 +55769,7 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'date-data' },
-	            this.props.dateData.data[(0, _moment2.default)(this.props.day).format('YYYY-MM-DD')]
+	            this.props.dateData && this.props.dateData.data[(0, _moment2.default)(this.props.day).format('YYYY-MM-DD')]
 	          ),
 	          this.props.day.date()
 	        ),

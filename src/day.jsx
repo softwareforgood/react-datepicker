@@ -183,7 +183,7 @@ export default class Day extends React.Component {
         aria-label={`day-${this.props.day.date()}`}
         role="option">
         <div className="react-datepicker__day--date">
-          <div className="date-data">{this.props.dateData.data[moment(this.props.day).format('YYYY-MM-DD')]}</div>
+          <div className="date-data">{this.props.dateData && this.props.dateData.data[moment(this.props.day).format('YYYY-MM-DD')]}</div>
           {this.props.day.date()}
         </div>
         {this.props.dateData && <div className="date-data">{this.props.dateData[moment(this.props.day).format('YYYY-MM-DD')]}</div>}
