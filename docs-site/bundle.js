@@ -502,7 +502,7 @@
 
 /***/ }),
 /* 6 */
-[533, 7],
+[534, 7],
 /* 7 */
 /***/ (function(module, exports) {
 
@@ -5689,7 +5689,7 @@
 
 /***/ }),
 /* 50 */
-[533, 35],
+[534, 35],
 /* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20095,7 +20095,7 @@
 
 	var _example_components2 = _interopRequireDefault(_example_components);
 
-	var _hero_example = __webpack_require__(532);
+	var _hero_example = __webpack_require__(533);
 
 	var _hero_example2 = _interopRequireDefault(_hero_example);
 
@@ -20354,53 +20354,57 @@
 
 	var _inline2 = _interopRequireDefault(_inline);
 
-	var _open_to_date = __webpack_require__(519);
+	var _shfbDayContent = __webpack_require__(519);
+
+	var _shfbDayContent2 = _interopRequireDefault(_shfbDayContent);
+
+	var _open_to_date = __webpack_require__(520);
 
 	var _open_to_date2 = _interopRequireDefault(_open_to_date);
 
-	var _fixed_calendar = __webpack_require__(520);
+	var _fixed_calendar = __webpack_require__(521);
 
 	var _fixed_calendar2 = _interopRequireDefault(_fixed_calendar);
 
-	var _week_numbers = __webpack_require__(521);
+	var _week_numbers = __webpack_require__(522);
 
 	var _week_numbers2 = _interopRequireDefault(_week_numbers);
 
-	var _custom_input = __webpack_require__(522);
+	var _custom_input = __webpack_require__(523);
 
 	var _custom_input2 = _interopRequireDefault(_custom_input);
 
-	var _multi_month = __webpack_require__(523);
+	var _multi_month = __webpack_require__(524);
 
 	var _multi_month2 = _interopRequireDefault(_multi_month);
 
-	var _multi_month_drp = __webpack_require__(524);
+	var _multi_month_drp = __webpack_require__(525);
 
 	var _multi_month_drp2 = _interopRequireDefault(_multi_month_drp);
 
-	var _children = __webpack_require__(525);
+	var _children = __webpack_require__(526);
 
 	var _children2 = _interopRequireDefault(_children);
 
-	var _portal = __webpack_require__(526);
+	var _portal = __webpack_require__(527);
 
 	var _portal2 = _interopRequireDefault(_portal);
 
-	var _inline_portal = __webpack_require__(527);
+	var _inline_portal = __webpack_require__(528);
 
 	var _inline_portal2 = _interopRequireDefault(_inline_portal);
 
-	var _raw_change = __webpack_require__(528);
+	var _raw_change = __webpack_require__(529);
 
 	var _raw_change2 = _interopRequireDefault(_raw_change);
 
-	var _dont_close_onSelect = __webpack_require__(529);
+	var _dont_close_onSelect = __webpack_require__(530);
 
 	var _dont_close_onSelect2 = _interopRequireDefault(_dont_close_onSelect);
 
-	__webpack_require__(530);
-
 	__webpack_require__(531);
+
+	__webpack_require__(532);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20535,6 +20539,9 @@
 	    }, {
 	      title: 'Don\'t hide calendar on date selection',
 	      component: _react2.default.createElement(_dont_close_onSelect2.default, null)
+	    }, {
+	      title: 'Day Content',
+	      component: _react2.default.createElement(_shfbDayContent2.default, null)
 	    }], _this.renderExamples = function () {
 	      return _this.examples.map(function (example, index) {
 	        return _react2.default.createElement(
@@ -54376,7 +54383,7 @@
 
 /***/ }),
 /* 468 */
-[534, 469],
+[535, 469],
 /* 469 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -55766,11 +55773,6 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'react-datepicker__day--date' },
-	          _react2.default.createElement(
-	            'div',
-	            { className: 'date-data' },
-	            this.props.dateData && this.props.dateData.data[(0, _moment2.default)(this.props.day).format('YYYY-MM-DD')]
-	          ),
 	          this.props.day.date()
 	        ),
 	        this.props.dateData && _react2.default.createElement(
@@ -56259,7 +56261,7 @@
 
 /***/ }),
 /* 484 */
-[534, 485],
+[535, 485],
 /* 485 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -61726,6 +61728,98 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var DayContent = function (_React$Component) {
+	  _inherits(DayContent, _React$Component);
+
+	  function DayContent(props) {
+	    _classCallCheck(this, DayContent);
+
+	    var _this = _possibleConstructorReturn(this, (DayContent.__proto__ || Object.getPrototypeOf(DayContent)).call(this, props));
+
+	    _this.handleChange = function (date) {
+	      _this.setState({
+	        startDate: date
+	      });
+	    };
+
+	    _this.state = {
+	      startDate: (0, _moment2.default)()
+	    };
+	    return _this;
+	  }
+
+	  _createClass(DayContent, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'row' },
+	        _react2.default.createElement(
+	          'pre',
+	          { className: 'column example__code' },
+	          _react2.default.createElement(
+	            'code',
+	            { className: 'jsx' },
+	            '\n<DatePicker\n    inline\n    selected={this.state.startDate}\n    onChange={this.handleChange}\n/>\n'
+	          )
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'column' },
+	          _react2.default.createElement(_reactDatepicker2.default, {
+	            inline: true,
+	            selected: this.state.startDate,
+	            onChange: this.handleChange,
+	            dateData: {
+	              "2017-07-30": 0,
+	              "2017-07-31": 0,
+	              "2017-08-01": 0,
+	              "2017-08-02": 0,
+	              "2017-08-03": 0,
+	              "2017-08-04": 0, "2017-08-05": 0, "2017-08-06": 0, "2017-08-07": 0, "2017-08-08": 0, "2017-08-09": 0, "2017-08-10": 0, "2017-08-11": 0, "2017-08-12": 0, "2017-08-13": 0, "2017-08-14": 0, "2017-08-15": 14, "2017-08-16": 14, "2017-08-17": 14, "2017-08-18": 14, "2017-08-19": 0, "2017-08-20": 0, "2017-08-21": 20, "2017-08-22": 20, "2017-08-23": 39, "2017-08-24": 39, "2017-08-25": 39, "2017-08-26": 0, "2017-08-27": 0, "2017-08-28": 19, "2017-08-29": 19, "2017-08-30": 19, "2017-08-31": 19
+	            } })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DayContent;
+	}(_react2.default.Component);
+
+	exports.default = DayContent;
+
+/***/ }),
+/* 520 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDatepicker = __webpack_require__(347);
+
+	var _reactDatepicker2 = _interopRequireDefault(_reactDatepicker);
+
+	var _moment = __webpack_require__(349);
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var OpenToDate = function (_React$Component) {
 	  _inherits(OpenToDate, _React$Component);
 
@@ -61782,7 +61876,7 @@
 	exports.default = OpenToDate;
 
 /***/ }),
-/* 520 */
+/* 521 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61871,7 +61965,7 @@
 	exports.default = FixedCalendar;
 
 /***/ }),
-/* 521 */
+/* 522 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -61955,7 +62049,7 @@
 	exports.default = Default;
 
 /***/ }),
-/* 522 */
+/* 523 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62074,7 +62168,7 @@
 	exports.default = CustomInput;
 
 /***/ }),
-/* 523 */
+/* 524 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62158,7 +62252,7 @@
 	exports.default = MultiMonth;
 
 /***/ }),
-/* 524 */
+/* 525 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62243,7 +62337,7 @@
 	exports.default = MultiMonthDrp;
 
 /***/ }),
-/* 525 */
+/* 526 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62334,7 +62428,7 @@
 	exports.default = Children;
 
 /***/ }),
-/* 526 */
+/* 527 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62418,7 +62512,7 @@
 	exports.default = WithPortal;
 
 /***/ }),
-/* 527 */
+/* 528 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62513,7 +62607,7 @@
 	exports.default = InlinePortalVersion;
 
 /***/ }),
-/* 528 */
+/* 529 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62609,7 +62703,7 @@
 	exports.default = RawChanges;
 
 /***/ }),
-/* 529 */
+/* 530 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62693,15 +62787,15 @@
 	exports.default = DontCloseOnSelect;
 
 /***/ }),
-/* 530 */
+/* 531 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 531 */
-530,
 /* 532 */
+531,
+/* 533 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -62768,7 +62862,7 @@
 	exports.default = HeroExample;
 
 /***/ }),
-/* 533 */
+/* 534 */
 /***/ (function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	/**
@@ -62884,7 +62978,7 @@
 	module.exports = PooledClass;
 
 /***/ }),
-/* 534 */
+/* 535 */
 /***/ (function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	/**

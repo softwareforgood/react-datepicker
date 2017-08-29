@@ -28,6 +28,7 @@ import YearSelectDropdown from './examples/year_select_dropdown'
 import Today from './examples/today'
 import TimeZoneDate from './examples/timezone_date'
 import Inline from './examples/inline'
+import DayContent from './examples/shfb-day-content'
 import OpenToDate from './examples/open_to_date'
 import FixedCalendar from './examples/fixed_calendar'
 import WeekNumbers from './examples/week_numbers'
@@ -195,6 +196,10 @@ export default class exampleComponents extends React.Component {
   {
     title: 'Don\'t hide calendar on date selection',
     component: <DontCloseOnSelect/>
+  },
+  {
+    title: 'Day Content',
+    component: <DayContent />
   }]
 
   renderExamples = () =>
