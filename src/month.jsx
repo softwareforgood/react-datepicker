@@ -8,10 +8,12 @@ const FIXED_HEIGHT_STANDARD_WEEK_COUNT = 6
 export default class Month extends React.Component {
   static propTypes = {
     day: PropTypes.object.isRequired,
+    dayClassName: PropTypes.func,
     endDate: PropTypes.object,
     excludeDates: PropTypes.array,
     filterDate: PropTypes.func,
     fixedHeight: PropTypes.bool,
+    formatWeekNumber: PropTypes.func,
     highlightDates: PropTypes.array,
     includeDates: PropTypes.array,
     inline: PropTypes.bool,
@@ -20,6 +22,7 @@ export default class Month extends React.Component {
     onDayClick: PropTypes.func,
     onDayMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
+    onWeekSelect: PropTypes.func,
     peekNextMonth: PropTypes.bool,
     preSelection: PropTypes.object,
     selected: PropTypes.object,
@@ -69,6 +72,8 @@ export default class Month extends React.Component {
           month={this.props.day.month()}
           onDayClick={this.handleDayClick}
           onDayMouseEnter={this.handleDayMouseEnter}
+          onWeekSelect={this.props.onWeekSelect}
+          formatWeekNumber={this.props.formatWeekNumber}
           minDate={this.props.minDate}
           maxDate={this.props.maxDate}
           excludeDates={this.props.excludeDates}
@@ -85,6 +90,7 @@ export default class Month extends React.Component {
           showWeekNumber={this.props.showWeekNumbers}
           startDate={this.props.startDate}
           endDate={this.props.endDate}
+          dayClassName={this.props.dayClassName}
           utcOffset={this.props.utcOffset}/>)
 
       if (breakAfterNextPush) break

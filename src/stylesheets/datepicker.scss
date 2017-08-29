@@ -1,6 +1,10 @@
 @import "variables";
 @import "mixins";
 
+.react-datepicker-wrapper {
+  display: inline-block;
+}
+
 .react-datepicker {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: $datepicker__font-size;
@@ -17,16 +21,42 @@
   left: 50px;
 }
 
-.react-datepicker__tether-element-attached-top .react-datepicker__triangle {
-  @extend %triangle-arrow-up;
-}
+.react-datepicker-popper {
+  z-index: 1;
 
-.react-datepicker__tether-element-attached-bottom .react-datepicker__triangle {
-  @extend %triangle-arrow-down;
-}
+  &[data-placement^="bottom"] {
+    margin-top: $datepicker__triangle-size + 2px;
 
-.react-datepicker__tether-element-attached-bottom.react-datepicker__tether-element {
-  margin-top: -20px;
+    .react-datepicker__triangle {
+      @extend %triangle-arrow-up;
+    }
+  }
+
+  &[data-placement^="top"] {
+    margin-bottom: $datepicker__triangle-size - 2px;
+
+    .react-datepicker__triangle {
+      @extend %triangle-arrow-down;
+    }
+  }
+
+  &[data-placement^="right"] {
+    margin-left: $datepicker__triangle-size;
+
+    .react-datepicker__triangle {
+      left: auto;
+      right: 42px;
+    }
+  }
+
+  &[data-placement^="left"] {
+    margin-right: $datepicker__triangle-size;
+
+    .react-datepicker__triangle {
+      left: 42px;
+      right: auto;
+    }
+  }
 }
 
 .react-datepicker__header {
@@ -126,6 +156,13 @@
   line-height: $datepicker__item-size;
   text-align: center;
   margin: $datepicker__day-margin;
+  &.react-datepicker__week-number--clickable {
+    cursor: pointer;
+    &:hover {
+      border-radius: $datepicker__border-radius;
+      background-color: $datepicker__background-color;
+    }
+  }
 }
 
 .react-datepicker__day-name,
@@ -157,6 +194,14 @@
 
     &:hover {
       background-color: darken($datepicker__highlighted-color, 5%);
+    }
+
+    &-custom-1 {
+      color: magenta;
+    }
+
+    &-custom-2 {
+      color: green;
     }
   }
 
@@ -241,6 +286,7 @@
   width: 50%;
   left: 25%;
   top: 30px;
+  z-index: 1;
   text-align: center;
   border-radius: $datepicker__border-radius;
   border: 1px solid $datepicker__border-color;
@@ -336,10 +382,6 @@
   clear: left;
 }
 
-.react-datepicker__tether-element {
-  z-index: 2147483647;
-}
-
 .react-datepicker__portal {
   position: fixed;
   width: 100vw;
@@ -391,5 +433,3 @@
     }
   }
 }
-
-

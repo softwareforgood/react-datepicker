@@ -2,7 +2,7 @@ import React from 'react'
 import DatePicker from 'react-datepicker'
 import moment from 'moment'
 
-export default class YearDropdown extends React.Component {
+export default class DontCloseOnSelect extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -20,25 +20,19 @@ export default class YearDropdown extends React.Component {
     return <div className="row">
       <pre className="column example__code">
         <code className="jsx">{`
-        <DatePicker
-            selected={this.state.startDate}
-            onChange={this.handleChange}
-            showYearDropdown
-            dateFormatCalendar="MMMM"
-            scrollableYearDropdown
-            yearDropdownItemNumber={15}
-        />
-        `}
+<DatePicker
+    selected={this.state.startDate}
+    onChange={this.handleChange}
+    shouldCloseOnSelect={false}
+/>
+`}
         </code>
       </pre>
       <div className="column">
         <DatePicker
             selected={this.state.startDate}
             onChange={this.handleChange}
-            showYearDropdown
-            dateFormatCalendar="MMMM"
-            yearDropdownItemNumber={15}
-            scrollableYearDropdown />
+            shouldCloseOnSelect={false} />
       </div>
     </div>
   }
