@@ -1,5 +1,5 @@
-`datepicker` (component)
-========================
+`index` (component)
+===================
 
 General datepicker component.
 

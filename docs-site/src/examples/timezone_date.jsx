@@ -57,8 +57,9 @@ export default class TimeZoneDate extends React.Component {
       </pre>
       <div className="column">
         <DatePicker
-            utcOffset={this.state.utcOffset}
+            utcOffset={this.state.utcOffset * 60}
             dateFormat="DD-MMM YYYY HH:mm"
+            showTimeSelect
             todayButton={todayTxt}
             selected={selected}
             onChange={this.handleChange} />
