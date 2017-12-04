@@ -328,36 +328,6 @@ export default class Calendar extends React.Component {
             <div className="react-datepicker__day-names">
               {this.header(monthDate)}
             </div>
-<<<<<<< HEAD
-            <Month
-                day={monthDate}
-                dayClassName={this.props.dayClassName}
-                onDayClick={this.handleDayClick}
-                onDayMouseEnter={this.handleDayMouseEnter}
-                onMouseLeave={this.handleMonthMouseLeave}
-                onWeekSelect={this.props.onWeekSelect}
-                formatWeekNumber={this.props.formatWeekNumber}
-                minDate={this.props.minDate}
-                maxDate={this.props.maxDate}
-                excludeDates={this.props.excludeDates}
-                highlightDates={this.props.highlightDates}
-                selectingDate={this.state.selectingDate}
-                includeDates={this.props.includeDates}
-                inline={this.props.inline}
-                dateData={this.props.dateData}
-                fixedHeight={this.props.fixedHeight}
-                filterDate={this.props.filterDate}
-                preSelection={this.props.preSelection}
-                selected={this.props.selected}
-                selectsStart={this.props.selectsStart}
-                selectsEnd={this.props.selectsEnd}
-                showWeekNumbers={this.props.showWeekNumbers}
-                startDate={this.props.startDate}
-                endDate={this.props.endDate}
-                peekNextMonth={this.props.peekNextMonth}
-                utcOffset={this.props.utcOffset} />
-=======
->>>>>>> source/master
           </div>
           <Month
             day={monthDate}
@@ -384,7 +354,8 @@ export default class Calendar extends React.Component {
             startDate={this.props.startDate}
             endDate={this.props.endDate}
             peekNextMonth={this.props.peekNextMonth}
-            utcOffset={this.props.utcOffset} />
+            utcOffset={this.props.utcOffset}
+            dateData={this.props.dateData} />
         </div>
       )
     }
