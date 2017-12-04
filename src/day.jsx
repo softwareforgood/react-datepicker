@@ -183,17 +183,17 @@ export default class Day extends React.Component {
   render () {
     return (
       <div
-          className={this.getClassNames(this.props.day)}
-          onClick={this.handleClick}
-          onMouseEnter={this.handleMouseEnter}
-          aria-label={`day-${getDate(this.props.day)}`}
-          role="option">
+        className={this.getClassNames(this.props.day)}
+        onClick={this.handleClick}
+        onMouseEnter={this.handleMouseEnter}
+        aria-label={`day-${getDate(this.props.day)}`}
+        role="option">
             <div className="react-datepicker__day--date">
                 {getDate(this.props.day)}
             </div>
             {this.props.dateData && <div className="date-data">{this.props.dateData[moment(this.props.day).format('YYYY-MM-DD')]}</div>}
 
       </div>
-    );
+    )
   }
 }
