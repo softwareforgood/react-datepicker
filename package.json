@@ -112,6 +112,7 @@
     "lint": "run-p eslint sass-lint",
     "prepublish": "test $(npm -v | tr . '\\n' | head -n 1) -ge '4' || exit 1",
     "prepare": "npm run build",
+    "install": "npm run build",
     "codecov": "cat coverage/*/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js",
     "prebuild": "rimraf es lib dist",
     "build": "run-p build:** && run-p css:**",
